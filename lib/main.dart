@@ -1,3 +1,4 @@
+import '/ui/pages/home_page.dart';
 import '/ui/pages/sign_up_success_page.dart';
 import '/ui/pages/sign_up_set_ktp_page.dart';
 import '/ui/pages/onboarding_page.dart';
@@ -26,6 +27,7 @@ class MyApp extends StatelessWidget {
         '/sign-up-set-profile': (context) => const SignUpSetProfilePage(),
         '/sign-up-set-ktp': (context) => const SignUpSetKtpPage(),
         '/sign-up-success': (context) => const SignUpSuccessPage(),
+        '/home': (context) => const HomePage(),
       },
     );
   }
