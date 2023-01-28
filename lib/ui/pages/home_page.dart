@@ -8,6 +8,15 @@ class HomePage extends StatelessWidget {
   Widget build(BuildContext context) {
     return Scaffold(
       backgroundColor: lightBackgroundColor,
+      body: ListView(
+        padding: const EdgeInsets.symmetric(
+          horizontal: 24,
+        ),
+        children: [
+          buildProfile(),
+          buildWalletCard(),
+        ],
+      ),
       bottomNavigationBar: BottomAppBar(
         color: whiteColor,
         shape: const CircularNotchedRectangle(),
@@ -72,6 +81,114 @@ class HomePage extends StatelessWidget {
         ),
       ),
       floatingActionButtonLocation: FloatingActionButtonLocation.centerDocked,
+    );
+  }
+
+  Widget buildProfile() {
+    return Container(
+      margin: const EdgeInsets.only(top: 40),
+      child: Row(
+        mainAxisAlignment: MainAxisAlignment.spaceBetween,
+        children: [
+          Column(
+            crossAxisAlignment: CrossAxisAlignment.start,
+            children: [
+              Text(
+                "Howdy,",
+                style: greyTextStyle.copyWith(fontSize: 16),
+              ),
+              const SizedBox(height: 2),
+              Text(
+                "shaynahan",
+                style: blackTextStyle.copyWith(
+                  fontSize: 20,
+                  fontWeight: semiBold,
+                ),
+              ),
+            ],
+          ),
+          Container(
+            width: 60,
+            height: 60,
+            decoration: const BoxDecoration(
+              shape: BoxShape.circle,
+              image: DecorationImage(
+                fit: BoxFit.cover,
+                image: AssetImage("assets/images/img_profile.png"),
+              ),
+            ),
+            child: Align(
+              alignment: Alignment.topRight,
+              child: Container(
+                width: 16,
+                height: 16,
+                decoration: BoxDecoration(
+                  shape: BoxShape.circle,
+                  color: whiteColor,
+                ),
+                child: Center(
+                  child: Icon(
+                    Icons.check_circle,
+                    color: greenColor,
+                    size: 14,
+                  ),
+                ),
+              ),
+            ),
+          ),
+        ],
+      ),
+    );
+  }
+
+  Widget buildWalletCard() {
+    return Container(
+      margin: const EdgeInsets.only(top: 30),
+      padding: const EdgeInsets.all(30),
+      width: double.infinity,
+      height: 220,
+      decoration: BoxDecoration(
+        borderRadius: BorderRadius.circular(28),
+        image: const DecorationImage(
+          fit: BoxFit.cover,
+          image: AssetImage(
+            "assets/images/img_bg_card.png",
+          ),
+        ),
+      ),
+      child: Column(
+        crossAxisAlignment: CrossAxisAlignment.start,
+        children: [
+          Text(
+            "Shayna Hanna",
+            style: whiteTextStyle.copyWith(
+              fontSize: 18,
+              fontWeight: medium,
+            ),
+          ),
+          const SizedBox(height: 24),
+          Text(
+            "*** **** **** 1280",
+            style: whiteTextStyle.copyWith(
+              fontSize: 18,
+              fontWeight: medium,
+              letterSpacing: 6,
+            ),
+          ),
+          const SizedBox(height: 24),
+          Text(
+            "Balance",
+            style: whiteTextStyle,
+          ),
+          Text(
+            "Rp 12.500",
+            style: whiteTextStyle.copyWith(
+              fontSize: 24,
+              fontWeight: semiBold,
+            ),
+          ),
+        ],
+      ),
     );
   }
 }
