@@ -1,4 +1,5 @@
 import 'package:bank_sha_app/blocs/auth/auth_bloc.dart';
+import 'package:bank_sha_app/shared/theme.dart';
 import 'package:bank_sha_app/ui/pages/profile_page.dart';
 
 import '/ui/pages/home_page.dart';
@@ -27,6 +28,19 @@ class MyApp extends StatelessWidget {
       ],
       child: MaterialApp(
         debugShowCheckedModeBanner: false,
+        theme: ThemeData(
+          scaffoldBackgroundColor: lightBackgroundColor,
+          appBarTheme: AppBarTheme(
+            backgroundColor: lightBackgroundColor,
+            elevation: 0,
+            centerTitle: true,
+            iconTheme: IconThemeData(color: blackColor),
+            titleTextStyle: blackTextStyle.copyWith(
+              fontWeight: semiBold,
+              fontSize: 20,
+            ),
+          ),
+        ),
         routes: {
           '/': (context) => const SplashPage(),
           '/onboarding': (context) => const OnboardingPage(),
