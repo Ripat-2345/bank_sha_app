@@ -1,5 +1,6 @@
 import 'package:bank_sha_app/blocs/auth/auth_bloc.dart';
 import 'package:bank_sha_app/shared/theme.dart';
+import 'package:bank_sha_app/ui/pages/pin_page.dart';
 import 'package:bank_sha_app/ui/pages/profile_page.dart';
 
 import '/ui/pages/home_page.dart';
@@ -49,6 +50,7 @@ class MyApp extends StatelessWidget {
           '/sign-up-success': (context) => const SignUpSuccessPage(),
           '/home': (context) => const HomePage(),
           '/profile': (context) => const ProfilePage(),
+          '/pin': (context) => const PinPage(),
         },
       ),
     );
