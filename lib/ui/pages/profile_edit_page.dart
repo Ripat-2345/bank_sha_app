@@ -1,4 +1,3 @@
-import 'package:bank_sha_app/shared/shared_method.dart';
 import 'package:bank_sha_app/shared/theme.dart';
 import 'package:bank_sha_app/ui/widgets/buttons.dart';
 import 'package:bank_sha_app/ui/widgets/forms.dart';
