@@ -1,6 +1,8 @@
 import 'package:bank_sha_app/shared/theme.dart';
 import 'package:bank_sha_app/ui/widgets/buttons.dart';
 import 'package:flutter/material.dart';
+import 'package:intl/intl.dart';
+import 'package:url_launcher/url_launcher.dart';
 
 class TopupAmountPage extends StatefulWidget {
   const TopupAmountPage({super.key});
@@ -12,6 +14,21 @@ class TopupAmountPage extends StatefulWidget {
 class _TopupAmountPageState extends State<TopupAmountPage> {
   final TextEditingController amountController =
       TextEditingController(text: "0");
+
+  @override
+  void initState() {
+    super.initState();
+    amountController.addListener(() {
+      final text = amountController.text;
+      amountController.value = amountController.value.copyWith(
+        text: NumberFormat.currency(
+          locale: "id",
+          decimalDigits: 0,
+          symbol: '',
+        ).format(int.parse(text.replaceAll('.', ''))),
+      );
+    });
+  }
 
   addAmount(String number) {
     if (amountController.text == "0") {
@@ -164,7 +181,18 @@ class _TopupAmountPageState extends State<TopupAmountPage> {
           const SizedBox(height: 50),
           CustomFilledButton(
             title: "Checkout Now",
-            onPressed: () {},
+            onPressed: () async {
+              if (await Navigator.pushNamed(context, "/pin") == true) {
+                await launchUrl(Uri.parse("https://demo.midtrans.com/"));
+                Future.delayed(const Duration(seconds: 3), () {
+                  Navigator.pushNamedAndRemoveUntil(
+                    context,
+                    "/topup-success",
+                    (route) => false,
+                  );
+                });
+              }
+            },
           ),
           const SizedBox(height: 25),
           CustomTextButton(
