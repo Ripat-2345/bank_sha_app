@@ -8,6 +8,9 @@ import 'package:bank_sha_app/ui/pages/profile_page.dart';
 import 'package:bank_sha_app/ui/pages/topup_amount_page.dart';
 import 'package:bank_sha_app/ui/pages/topup_page.dart';
 import 'package:bank_sha_app/ui/pages/topup_success_page.dart';
+import 'package:bank_sha_app/ui/pages/transfer_amount_page.dart';
+import 'package:bank_sha_app/ui/pages/transfer_page.dart';
+import 'package:bank_sha_app/ui/pages/transfer_success_page.dart';
 
 import '/ui/pages/home_page.dart';
 import '/ui/pages/sign_up_success_page.dart';
@@ -61,6 +64,9 @@ class MyApp extends StatelessWidget {
           '/topup': (context) => const TopupPage(),
           '/topup-amount': (context) => const TopupAmountPage(),
           '/topup-success': (context) => const TopupSuccessPage(),
+          '/transfer': (context) => const TransferPage(),
+          '/transfer-amount': (context) => const TransferAmountPage(),
+          '/transfer-success': (context) => const TransferSuccessPage(),
         },
       ),
     );
